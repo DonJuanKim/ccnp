@@ -1,7 +1,7 @@
-<ul>
-  <% @capsules.each do |capsule| %>
-    <li><%= capsule.name %>
-  <% end %>
-</ul>
+<% @capsules.each do |capsule| %>
+  <div>
+  <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
+  </div>
+<% end %>
 
-<%= link_to new_capsule_path %>
+<%= link_to "new capsule", new_capsule_path %>
