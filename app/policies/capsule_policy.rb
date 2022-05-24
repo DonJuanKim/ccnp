@@ -12,7 +12,6 @@ class CapsulePolicy < ApplicationPolicy
     end
   end
 
-<<<<<<< HEAD
   def new?
     true
   end
@@ -22,9 +21,6 @@ class CapsulePolicy < ApplicationPolicy
   end
 
   def create?
-=======
-  def show?
->>>>>>> master
     true
   end
 end
