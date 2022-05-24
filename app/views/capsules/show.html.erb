@@ -1,5 +1,5 @@
 <ul>
-  <% if @capsule.photos %>
+  <% if @capsule.photos.attached? %>
     <% @capsule.photos.each do |photo| %>
       <li><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></li>
     <% end %>
@@ -7,7 +7,7 @@
   <li><%= "Name: #{@capsule.name}" %></li>
   <li><%= "Description: #{@capsule.description}" %></li>
   <li><%= "Number: #{@capsule.number}" %></li>
-  <li><%= "Price: #{@capsule.price * 1.00}$" %></li>
+  <li><%= "Price: #{@capsule.price}$" %></li>
   <li><%= "From: #{@capsule.user.first_name} #{@capsule.user.last_name}"%></li>
   <li><%= "Date: #{@capsule.created_at}" %></li>
 </ul>
