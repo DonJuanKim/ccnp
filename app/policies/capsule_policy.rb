@@ -12,12 +12,7 @@ class CapsulePolicy < ApplicationPolicy
     end
   end
 
-  # def index?
-  #   false
-  # end
-
   def show?
     true
   end
-
 end
