@@ -4,15 +4,17 @@ class CapsulesController < ApplicationController
   end
 
   def show
+    authorize @capsule
     @capsule = Capsule.find(params[:id])
   end
 
   def new
     @capsule = Capsule.new
+    authorize @capsule
   end
 
   def create
-    raise
+    # TODO: method body, pundit
   end
 
   # TODO: implement capsule_params, do not forget :photo
