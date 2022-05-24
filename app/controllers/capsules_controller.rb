@@ -4,8 +4,8 @@ class CapsulesController < ApplicationController
   end
 
   def show
-    authorize @capsule
     @capsule = Capsule.find(params[:id])
+    authorize @capsule
   end
 
   def new
@@ -17,6 +17,8 @@ class CapsulesController < ApplicationController
     # TODO: method body, pundit
   end
 
+  private
+
   # TODO: implement capsule_params, do not forget :photo
   # should look something like this:
   # CAREFUL: possibly incomplete .permit parameter list
@@ -27,7 +29,7 @@ class CapsulesController < ApplicationController
   # end
   #
   # for multiple photos
-  # def capsule_params
-  #   params.require(:capsule).permit(:name, :description, :price, :number, photos: [])
-  # end
+  def capsule_params
+    params.require(:capsule).permit(:name, :description, :price, :number, photos: [])
+  end
 end
