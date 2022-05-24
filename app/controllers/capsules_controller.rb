@@ -1,11 +1,14 @@
 class CapsulesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @capsules = Capsule.all
+    # @capsules = Capsule.all
+    @capsules = policy_scope(Capsule)
   end
 
   def show
-    authorize @capsule
     @capsule = Capsule.find(params[:id])
+    authorize @capsule
   end
 
   def new
@@ -15,7 +18,17 @@ class CapsulesController < ApplicationController
 
   def create
     # TODO: method body, pundit
+    @capsule = Capsule.new(capsule_params)
+    @capsule.user = current_user
+    authorize @capsule
+    if @capsule.save
+      redirect_to capsule_path(@capsule)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
+  private
 
   # TODO: implement capsule_params, do not forget :photo
   # should look something like this:
@@ -27,7 +40,7 @@ class CapsulesController < ApplicationController
   # end
   #
   # for multiple photos
-  # def capsule_params
-  #   params.require(:capsule).permit(:name, :description, :price, :number, photos: [])
-  # end
+  def capsule_params
+    params.require(:capsule).permit(:name, :description, :price, :number, photos: [])
+  end
 end
