@@ -18,6 +18,14 @@ class CapsulesController < ApplicationController
 
   def create
     # TODO: method body, pundit
+    @capsule = Capsule.new(capsule_params)
+    @capsule.user = current_user
+    authorize @capsule
+    if @capsule.save
+      redirect_to capsule_path(@capsule)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

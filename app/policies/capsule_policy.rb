@@ -12,7 +12,15 @@ class CapsulePolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def show?
+    true
+  end
+
+  def create?
     true
   end
 end
