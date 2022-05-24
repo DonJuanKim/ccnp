@@ -1,0 +1,25 @@
+<%= simple_form_for(@capsule) do |f| %>
+  <!-- [...] -->
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :number %>
+
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, "Submit" %>
+
+  <!-- [...] -->
+
+<% end %>
+<%#
+
+create_table "capsules", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number"
+    t.index ["user_id"], name: "index_capsules_on_user_id" %>
