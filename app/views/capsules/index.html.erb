@@ -1,0 +1,7 @@
+<ul>
+  <% @capsules.each do |capsule| %>
+    <li><%= capsule.name %>
+  <% end %>
+</ul>
+
+<%= link_to new_capsule_path %>
