@@ -1,11 +1,14 @@
 class CapsulesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @capsules = Capsule.all
+    # @capsules = Capsule.all
+    @capsules = policy_scope(Capsule)
   end
 
   def show
-    authorize @capsule
     @capsule = Capsule.find(params[:id])
+    authorize @capsule
   end
 
   def new
