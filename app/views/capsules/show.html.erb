@@ -16,6 +16,7 @@
 <%= simple_form_for([@capsule, @booking]) do |f| %>
   <%= f.input :period_start, as: :date %>
   <%= f.input :period_end, as: :date  %>
+  <%= f.select :status, options_for_select(%w[accept decline]) %>
 
   <%= f.button :submit, "Submit" %>
 <% end %>

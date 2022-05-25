@@ -1,6 +1,19 @@
 <h1>Dashboard#dashboard</h1>
+<p></p>
+<h2>Your capsule</h2>
+<p></p>
+
 <% @capsules.each do |capsule| %>
   <div>
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
   </div>
 <% end %>
+
+
+<%#
+dashboard shows which capsules current user has
+As a host
+1. the current user can see the booking status : default is accepted ("1")
+
+2. the current user can update(change) the booking status
+ %>
