@@ -5,35 +5,24 @@
         <p>Change your night, change the world.</p>
       </div>
     </div>
-
-
-    <div class="home-container">
       <main class="grid">
+<% @capsules.each do |capsule| %>
+    <div class="home-container">
         <article class="home-card">
-          <%= image_tag "caps_house_1.jpg", class: "home-card-img" %>
+         <% if capsule.photos[0] %>
+        <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
+      <% else %>
+        <%= image_tag "capsules_default_display.jpg", class: "home-card-img" %>
+      <% end %>
           <div class="text">
-            <h3 class="home-card-title">Capsule 47</h3>
-            <p>Looking for space, comfort and touch of luxury for your holidays.</p>
+            <h3 class="home-card-title"><%= capsule.name %></h3>
+            <p><%= capsule.description %></p>
             <button class="home-card-btn">Book Now</button>
           </div>
         </article>
-        <article>
-          <%= image_tag "caps_house_1.jpg" %>
-          <div class="text">
-            <h3>Capsule 87</h3>
-            <p>Cosy and ideal for Familly and pets are welcome.</p>
-            <button>Book Now</button>
-          </div>
-        </article>
-        <article>
-          <%= image_tag "caps_house_1.jpg" %>
-          <div class="text">
-            <h3>Capsule 303</h3>
-            <p>Ideal for birthday, or wending party.</p>
-            <button>Book Now</button>
-          </div>
-        </article>
-      </main>
+    </div>
+<% end %>
+  </main>
       <div class="footer">
     </div>
   <div class="footer-links">
