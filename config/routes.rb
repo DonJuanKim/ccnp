@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[create update]
   end
 
-  get 'dashboard', to: 'dashboards#dashboard' # , as: 'dashboard'
+  get 'dashboard', to: 'dashboards#dashboard', as: 'dashboard'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
