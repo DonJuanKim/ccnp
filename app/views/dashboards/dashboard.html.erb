@@ -4,3 +4,11 @@
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
   </div>
 <% end %>
+
+<h2>Your bookings</h2>
+<% @created_bookings.each do |booking| %>
+  <div>
+    <h4><%= "ID: #{booking.id} - From: #{booking.period_start} To: #{booking.period_end} - Status: #{booking.status}" %></h4>
+    <p><%= link_to booking.capsule.name, capsule_path(booking.capsule) %></p>
+  </div>
+<% end %>
