@@ -1,38 +1,45 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "ccp_logo_project.png" %>
+<header>
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "ccp_logo_project.png", class: "logo" %>
+    <h2>CCNP</h2>
+  <% end %>
+  <%# <div class="navbar-links-wrap"> %>
+    <ul class="navbar-links">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Capsules", new_capsule_path, class: "nav-link" %>
+      </li>
+
+    </ul>
+  <%# </div> %>
+
+  <ul class="navbar-sign-in">
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Host", new_capsule_path, class: "nav-link" %>
+      </li>
+<%# dropdown this part when click a profile picture %>
+      <div class="nav-item profile">
+        <div class="profile-btn"><%= image_tag "bulma.jpeg", class: "profile-pic" %></div>
+        <div class="profile-dropdown-menu">
+          <li class="nav-item"><%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Log out",  destroy_user_session_path, class: "nav-link" %></li>
+        </div>
+      </div>
+      <%# <%= image_tag "bulma.jpeg", class: "profile-pic" %>
+<%# ---- %>
+
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+      </li>
     <% end %>
+  </ul>
+</header>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-          </li>
-          <li class="create_btn">
-            <%= link_to "New Capsule", new_capsule_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to "Logout",  destroy_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+          <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
