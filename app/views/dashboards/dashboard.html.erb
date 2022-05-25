@@ -1,0 +1,6 @@
+<h1>Dashboard#dashboard</h1>
+<% @capsules.each do |capsule| %>
+  <div>
+    <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
+  </div>
+<% end %>
