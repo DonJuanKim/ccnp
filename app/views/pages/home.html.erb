@@ -17,7 +17,7 @@
           <div class="text">
             <h3 class="home-card-title"><%= capsule.name %></h3>
             <p><%= capsule.description %></p>
-            <button class="home-card-btn">Book Now</button>
+            <%= link_to 'Show', capsule_path(capsule), class: "home-card-btn" %>
           </div>
         </article>
     </div>
@@ -29,8 +29,5 @@
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-    <i class="fas fa-heart">Konstantin Greif - Johannes Ibald - Donghwan Kim - Jeremy Bordat</i>
   </div>
 </div>
