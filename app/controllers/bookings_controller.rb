@@ -31,6 +31,8 @@ class BookingsController < ApplicationController
                                    params[:booking]["period_end(3i)"].to_i)
   end
 
+  
+
   private
 
   def find_capsule

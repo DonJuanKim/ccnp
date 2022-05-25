@@ -1,7 +1,23 @@
 <h1>Dashboard#dashboard</h1>
+<p></p>
+<h2>Your capsule</h2>
+<p></p>
+
 <% @capsules.each do |capsule| %>
   <div>
+    <div>
+      <% if capsule.photos[0] %>
+        <%= cl_image_tag capsule.photos[0].key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "capsules_default_display.jpg", height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
+    <div>
+      <% capsule.bookings.each do |booking| %>
+        <li>Booking ID: <%= booking.id %></li>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
