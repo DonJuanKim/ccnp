@@ -24,13 +24,13 @@
   --main-column-width: 25em;
 }
 
-* {
-  box-sizing: border-box;
-  &::before,
-  &::after {
-    border-box: inherit;
-  }
-}
+// * {
+//   box-sizing: border-box;
+//   &::before,
+//   &::after {
+//   border-box: inherit;
+//   }
+// }
 
 .app {
   position: relative;
