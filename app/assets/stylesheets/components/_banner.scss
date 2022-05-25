@@ -6,15 +6,15 @@
 
 .banner h1 {
   margin: 0;
-  color: rgb(2, 2, 2);
+  color: rgb(0, 0, 0);
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight:inherit;
 }
 
 .banner p {
   font-size: 20px;
-  color: white;
-  opacity: .7;
+  color: rgb(255, 255, 255);
+  opacity: 8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
