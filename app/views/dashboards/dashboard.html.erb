@@ -5,18 +5,22 @@
 
 <% @capsules.each do |capsule| %>
   <div>
+    <div>
+      <% if capsule.photos[0] %>
+        <%= cl_image_tag capsule.photos[0].key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "capsules_default_display.jpg", height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
+    <div>
+      <% capsule.bookings.each do |booking| %>
+        <li>Booking ID: <%= booking.id %></li>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
-
-<%#
-dashboard shows which capsules current user has
-As a host
-1. the current user can see the booking status : default is accepted ("1")
-
-2. the current user can update(change) the booking status
- %>
 <h2>Your bookings</h2>
 <% @created_bookings.each do |booking| %>
   <div>
