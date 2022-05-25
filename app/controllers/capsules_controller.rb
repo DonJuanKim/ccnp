@@ -8,7 +8,9 @@ class CapsulesController < ApplicationController
 
   def show
     @capsule = Capsule.find(params[:id])
+    @booking = Booking.new
     authorize @capsule
+    authorize @booking
   end
 
   def new
