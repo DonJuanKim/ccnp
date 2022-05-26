@@ -4,34 +4,34 @@
     <h2>CCNP</h2>
   <% end %>
     <ul class="navbar-links">
-      <li class="nav-item">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to "Home", root_path, class: "navbar-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "About", "#", class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to "About", "#", class: "navbar-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Capsules", "#", class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to "Capsules", capsules_path, class: "navbar-link" %>
       </li>
 
     </ul>
 
   <ul class="navbar-sign-in">
     <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "Host", new_capsule_path, class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to "Host", new_capsule_path, class: "navbar-link" %>
       </li>
 <%# dropdown this part when click a profile picture %>
-      <div class="nav-item profile">
+      <div class="navbar-item profile">
         <div class="profile-btn"><%= image_tag "bulma.jpeg", class: "profile-pic" %></div>
         <div class="profile-dropdown-menu">
-          <li class="nav-item"><%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Log out",  destroy_user_session_path, class: "nav-link" %></li>
+          <li class="navbar-dropdown-item"><%= link_to "Dashboard", dashboard_path, class: "navbar-link" %></li>
+          <li class="navbar-dropdown-item"><%= link_to "Log out",  destroy_user_session_path, class: "navbar-link" %></li>
         </div>
       </div>
     <% else %>
-      <li class="nav-item">
-        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to "Log in", new_user_session_path, class: "navbar-link" %>
       </li>
     <% end %>
   </ul>
