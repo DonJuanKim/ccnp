@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'about', to: 'about#about', as: 'about'
   get 'dashboard', to: 'dashboards#dashboard', as: 'dashboard'
   # patch 'dashboard/:bookings_id/accept', to: 'dashboards#accept', as: 'accept_dashboard'
 
