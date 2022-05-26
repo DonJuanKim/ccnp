@@ -4,6 +4,7 @@ class CapsulesController < ApplicationController
   def index
     # @capsules = Capsule.all
     @capsules = policy_scope(Capsule)
+    @capsules = Capsule.search_by_name_description_number(params[:query]) if params[:query].present?
   end
 
   def show

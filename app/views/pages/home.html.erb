@@ -3,6 +3,18 @@
   </div>
 </div>
 
+<div>
+  <h2>THE SEARCH FORM</h2>
+  <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a capsule"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <main>
 
 </main>

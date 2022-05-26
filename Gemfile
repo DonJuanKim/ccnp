@@ -56,6 +56,8 @@ gem "cloudinary"
 gem "pundit"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'jquery-rails'
+gem "pg_search"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
