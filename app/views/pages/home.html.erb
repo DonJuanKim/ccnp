@@ -4,7 +4,7 @@
 </div>
 
 <div>
-  <h2>THE SEARCH FORM</h2>
+  <!-- Search bar start -->
   <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -13,6 +13,7 @@
     %>
     <%= submit_tag "Go", class: "btn btn-primary" %>
   <% end %>
+  <!-- Search bar end -->
 </div>
 
 <main>

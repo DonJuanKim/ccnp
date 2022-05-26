@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CapsuleOpenEffectController from "./capsule_open_effect_controller.js"
+application.register("capsule-open-effect", CapsuleOpenEffectController)
+
 import EditFormController from "./edit_form_controller.js"
 application.register("edit-form", EditFormController)
 
