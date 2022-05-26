@@ -16,7 +16,7 @@
     <div>
       <% capsule.bookings.each do |booking| %>
         <li>
-          Booking ID: <%= booking.id %>
+          Booking ID: <%= booking.id %><%= booking.period_start %><%= booking.period_end %>
           <% if booking.pending? %>
             <%= link_to "Accept", accept_capsule_booking_path(capsule, booking),  data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept?" }%>
             <%= link_to "Decline", decline_capsule_booking_path(capsule, booking),  data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to decline?" }%>

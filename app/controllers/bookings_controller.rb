@@ -6,15 +6,20 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     set_booking_period
+    booked_already = false
     @capsule.bookings.each do |existing_booking|
-      # check if start_date or end_date of new booking is inside range of existing booking
-      if (@booking.period_start >= existing_booking.period_start && @booking.period_start <= existing_booking.period_end) || (@booking.period_end >= existing_booking.period_start && @booking.period_end <= existing_booking.period_end)
-        redirect_to capsule_path(@capsule), status: :unprocessable_entity
-      elsif @booking.save
-        redirect_to dashboard_path
-      else
-        redirect_to capsule_path(@capsule)
+      if ((@booking.period_start >= existing_booking.period_start && @booking.period_start <= existing_booking.period_end) || (@booking.period_end >= existing_booking.period_start && @booking.period_end <= existing_booking.period_end)) && existing_booking.accepted?
+        booked_already = true
       end
+    end
+    if booked_already == true
+      flash[:alert] = "Sorry, already booked!"
+      redirect_to capsule_path(@capsule), status: :unprocessable_entity
+    elsif @booking.save
+      redirect_to dashboard_path
+    else
+      flash[:alert] = "Sorry, booking could not be processed!"
+      redirect_to capsule_path(@capsule)
     end
   end
 
