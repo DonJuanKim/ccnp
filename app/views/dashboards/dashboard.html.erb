@@ -15,7 +15,15 @@
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
     <div>
       <% capsule.bookings.each do |booking| %>
-        <li>Booking ID: <%= booking.id %></li>
+        <li>
+          Booking ID: <%= booking.id %>
+          <% if booking.pending? %>
+            <%= link_to "Accept", accept_capsule_booking_path(capsule, booking),  data: { confirm: 'Are you sure?' }%>
+            <%= link_to "Decline", decline_capsule_booking_path(capsule, booking),  data: { confirm: 'Are you sure?' }%>
+          <% else %>
+            <%= booking.status %>
+          <% end %>
+        </li>
       <% end %>
     </div>
   </div>

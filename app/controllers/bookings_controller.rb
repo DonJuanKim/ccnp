@@ -31,7 +31,19 @@ class BookingsController < ApplicationController
                                    params[:booking]["period_end(3i)"].to_i)
   end
 
-  
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accept!
+    authorize @booking
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
+    authorize @booking
+    redirect_to dashboard_path
+  end
 
   private
 
