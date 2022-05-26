@@ -1,35 +1,31 @@
 <div class="container">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <% if @capsule.photos.any? %>
-      <div class="carousel-inner">
-        <% @capsule.photos.each_with_index do |photo, index| %>
-          <% if index == 0 %>
-            <div class="carousel-item active">
-              <%= cl_image_tag photo.key %>
-            </div>
-          <% else %>
-            <div class="carousel-item">
-              <%= cl_image_tag photo.key %>
-            </div>
-          <% end %>
+  <% if @capsule.photos.any? %>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @capsule.photos.each do |photo| %>
+        <% if photo == @capsule.photos.first %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, alt: "capsule photo", class: "d-block w-100 carousel-img" %>
+          </div>
+        <% else %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, alt: "capsule photo", class: "d-block w-100 carousel-img" %>
+          </div>
         <% end %>
-      </div>
-    <% else %>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag "capsules_default_display.jpg", crop: :fill %>
-        </div>
-      </div>
-    <% end %>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <% end %>
+    </div>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+      <span class="visually-hidden">Next</span>
+    </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
   </div>
+  <% else %>
+    <%= image_tag "capsules_default_display.jpg", alt: "capsule photo", class: "d-block w-100 carousel-img" %>
+  <% end %>
 
   <h2><%= "#{@capsule.name}" %></h2>
   <p class="font-italic"><%= "#{@capsule.description}" %></p>
@@ -61,8 +57,8 @@
     <% end %>
   <% else %>
     <%= simple_form_for([@capsule, @booking]) do |f| %>
-      <%= f.input :period_start, as: :date %>
-      <%= f.input :period_end, as: :date  %>
+      <%= f.input :period_start, as: :date, html5: true %>
+      <%= f.input :period_end, as: :date, html5: true  %>
 
       <%= f.button :submit, "Submit" %>
     <% end %>
