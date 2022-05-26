@@ -19,3 +19,5 @@
 
   <%= f.button :submit, "Submit" %>
 <% end %>
+
+<%= link_to 'Delete', capsule_path(@capsule), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this capsule?" } %>
