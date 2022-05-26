@@ -11,6 +11,8 @@ class CapsulesController < ApplicationController
     @booking = Booking.new
     authorize @capsule
     authorize @booking
+
+
   end
 
   def new
@@ -28,6 +30,13 @@ class CapsulesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @capsule = Capsule.find(params[:id])
+    @capsule.update(capsule_params)
+    authorize @capsule
+    redirect_to capsule_path(@capsule)
   end
 
   private
