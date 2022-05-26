@@ -1,5 +1,8 @@
 .banner {
-  background-size: 30%;
-  background-position: center;
+  background-size: cover;
+  // background-position: center;
+  // background-color: #979897;
+  background-image: url(capsule_corp);
   height: 50vh;
+  background-repeat: no-repeat;
 }
