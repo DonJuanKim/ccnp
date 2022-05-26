@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :capsules, only: %i[index show new create] do
     resources :bookings, only: %i[create update] do
-      get :accept, on: :member
-      get :decline, on: :member
+      patch :accept, on: :member
+      patch :decline, on: :member
     end
   end
 
