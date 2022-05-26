@@ -19,6 +19,9 @@
   <%= f.button :submit, "Submit" %>
 <% end %>
 
+<% if @capsule.user == current_user %>
+  <%= link_to 'Delete', capsule_path(@capsule), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this capsule?" } %>
+<% end %>
 
 <%# <h3>EDIT / UPDATE CAPSULE</h3> %>
 <br>
@@ -40,4 +43,3 @@
     <% end %>
   </div>
 <% end %>
-<%# <script src="edit_click_btn.js"></script> %>

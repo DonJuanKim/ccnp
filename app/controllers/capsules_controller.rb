@@ -11,8 +11,6 @@ class CapsulesController < ApplicationController
     @booking = Booking.new
     authorize @capsule
     authorize @booking
-
-
   end
 
   def new
@@ -37,6 +35,13 @@ class CapsulesController < ApplicationController
     @capsule.update(capsule_params)
     authorize @capsule
     redirect_to capsule_path(@capsule)
+
+  def destroy
+    @capsule = Capsule.find(params[:id])
+    authorize @capsule
+    @capsule.destroy
+    # raise
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
