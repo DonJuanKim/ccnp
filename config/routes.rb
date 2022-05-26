@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :capsules, only: %i[index show new create] do
+  resources :capsules, only: %i[index show new create destroy] do
     resources :bookings, only: %i[create update] do
       patch :accept, on: :member
       patch :decline, on: :member
