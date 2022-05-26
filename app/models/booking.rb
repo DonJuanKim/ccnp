@@ -9,4 +9,12 @@ class Booking < ApplicationRecord
     accepted: 2,
     declined: 3
   }
+
+  def accept!
+    update_attribute(:status, 2)
+  end
+
+  def decline!
+    update_attribute(:status, 3)
+  end
 end
