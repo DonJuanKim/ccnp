@@ -2,8 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Merriweather Sans', sans-serif;
+$headers-font: 'Merriweather Sans', sans-serif;
+$text-shadow-dark: 0 6px 1px rgba(0,0,0,.1),
+0 0 5px rgba(0,0,0,.1),
+0 1px 3px rgba(0,0,0,.3),
+0 3px 5px rgba(0,0,0,.2),
+0 5px 10px rgba(0,0,0,.25),
+0 10px 10px rgba(0,0,0,.2),
+0 20px 20px rgba(0,0,0,.15);
+
+// $font-family: 'Merriweather Sans', sans-serif;
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

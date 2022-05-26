@@ -1,18 +1,36 @@
 <div class="banner">
-
 </div>
 
 <main class="card-container">
- <div class="row">
-  <div class="image">
-    <img src=<%= image_path("Berghain.jpeg") %> alt="">
-    <div class="details">
-      <h2>Capsule name</h2>
-      <p>Parasite is a 2019 South Korean black comedy thriller film directed by Bong Joon-ho, who co-wrote the screenplay with Han Jin-won. The film, starring Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong, Choi Woo-shik, Park So-dam, Jang Hye-jin, and Lee Jung-eun, follows a poor family who scheme to become employed by a wealthy family and infiltrate their household by posing as unrelated, highly qualified individuals.</p>
-      <div class="more">
-        <a href="">Read more</a>
+
+  <div class="row">
+  <h1 class="hot"> WHAT'S HOT? 🔥</h1>
+    <div class="image">
+      <img src=<%= image_path("Berghain.jpeg") %> alt="">
+      <div class="details">
+        <h2>Berghain</h2>
+        <p>Bring Berghain wherever you go</p>
+        <div class="more">
+          <a href="#" class="read-more">book now</a>
+        </div>
       </div>
     </div>
+
+    <% @capsules.each do |capsule| %>
+      <div class="image">
+        <% if capsule.photos[0] %>
+          <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
+        <% else %>
+          <%= image_tag "capsules_default_display.jpg", class: "home-card-img" %>
+        <% end %>
+        <div class="details">
+          <h2><%= capsule.name %></h2>
+          <p><%= capsule.description %></p>
+          <div class="more">
+            <%= link_to 'booknow', capsule_path(capsule), class: "read-more" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
- </div>
 </main>
