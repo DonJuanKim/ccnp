@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboards#dashboard', as: 'dashboard'
   # patch 'dashboard/:bookings_id/accept', to: 'dashboards#accept', as: 'accept_dashboard'
 
+  # devise_scope :user do
+  #    to: "pages#home"
+  # end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
