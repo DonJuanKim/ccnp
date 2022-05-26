@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboards#dashboard', as: 'dashboard'
 
+  # devise_scope :user do
+  #    to: "pages#home"
+  # end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
