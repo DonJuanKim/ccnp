@@ -6,9 +6,19 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     set_booking_period
-    if @booking.save
+    booked_already = false
+    @capsule.bookings.each do |existing_booking|
+      if ((@booking.period_start >= existing_booking.period_start && @booking.period_start <= existing_booking.period_end) || (@booking.period_end >= existing_booking.period_start && @booking.period_end <= existing_booking.period_end)) && existing_booking.accepted?
+        booked_already = true
+      end
+    end
+    if booked_already == true
+      flash[:alert] = "Sorry, already booked!"
+      redirect_to capsule_path(@capsule), status: :unprocessable_entity
+    elsif @booking.save
       redirect_to dashboard_path
     else
+      flash[:alert] = "Sorry, booking could not be processed!"
       redirect_to capsule_path(@capsule)
     end
   end
@@ -31,7 +41,19 @@ class BookingsController < ApplicationController
                                    params[:booking]["period_end(3i)"].to_i)
   end
 
-  
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accept!
+    authorize @booking
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.decline!
+    authorize @booking
+    redirect_to dashboard_path
+  end
 
   private
 

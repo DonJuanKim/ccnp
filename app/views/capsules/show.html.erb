@@ -12,10 +12,34 @@
   <li><%= "Date: #{@capsule.created_at}" %></li>
 </ul>
 
-
 <%= simple_form_for([@capsule, @booking]) do |f| %>
   <%= f.input :period_start, as: :date %>
   <%= f.input :period_end, as: :date  %>
 
   <%= f.button :submit, "Submit" %>
+<% end %>
+
+<% if @capsule.user == current_user %>
+  <%= link_to 'Delete', capsule_path(@capsule), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this capsule?" } %>
+<% end %>
+
+<%# <h3>EDIT / UPDATE CAPSULE</h3> %>
+<br>
+<% if @capsule.user == current_user %>
+  <div data-controller="edit-form">
+    <button data-action="click->edit-form#toggleEdit" id="edit-btn" class="btn btn-primary btn-lg">
+      Edit
+    </button>
+    <br>
+    <%= simple_form_for(@capsule, html: {data: {"edit-form-target": "editForm"}, class: "d-none"}) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :number %>
+
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, "Submit" %>
+
+    <% end %>
+  </div>
 <% end %>

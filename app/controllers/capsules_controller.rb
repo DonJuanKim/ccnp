@@ -30,6 +30,21 @@ class CapsulesController < ApplicationController
     end
   end
 
+  def update
+    @capsule = Capsule.find(params[:id])
+    @capsule.update(capsule_params)
+    authorize @capsule
+    redirect_to capsule_path(@capsule)
+  end
+
+  def destroy
+    @capsule = Capsule.find(params[:id])
+    authorize @capsule
+    @capsule.destroy
+    # raise
+    redirect_to dashboard_path, status: :see_other
+  end
+
   private
 
   # TODO: implement capsule_params, do not forget :photo

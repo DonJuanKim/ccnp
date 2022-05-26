@@ -1,6 +1,6 @@
-<h1>Dashboard#dashboard</h1>
+<h1>Dashboard</h1>
 <p></p>
-<h2>Your capsule</h2>
+<h2>Your capsules</h2>
 <p></p>
 
 <% @capsules.each do |capsule| %>
@@ -15,7 +15,15 @@
     <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
     <div>
       <% capsule.bookings.each do |booking| %>
-        <li>Booking ID: <%= booking.id %></li>
+        <li>
+          Booking ID: <%= booking.id %> From: <%= booking.period_start %> Until: <%= booking.period_end %>
+          <% if booking.pending? %>
+            <%= link_to "Accept", accept_capsule_booking_path(capsule, booking),  data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to accept?" }%>
+            <%= link_to "Decline", decline_capsule_booking_path(capsule, booking),  data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to decline?" }%>
+          <% else %>
+            <%= booking.status %>
+          <% end %>
+        </li>
       <% end %>
     </div>
   </div>
