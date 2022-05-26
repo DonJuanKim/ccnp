@@ -9,4 +9,11 @@ class Capsule < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   belongs_to :user
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_description_number,
+                  against: %i[name description number],
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 end
