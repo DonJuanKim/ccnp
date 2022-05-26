@@ -1,3 +1,19 @@
+  <!--THE SEARCH FORM START -->
+  <br>
+  <br>
+  <div>
+      <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Browse capsules"
+        %>
+        <%= submit_tag "Go", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+  <br>
+  <br>
+  <!-- THE SEARCH FORM END -->
 <% @capsules.each do |capsule| %>
   <div>
     <div>
