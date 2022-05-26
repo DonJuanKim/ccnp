@@ -35,6 +35,7 @@ class CapsulesController < ApplicationController
     @capsule.update(capsule_params)
     authorize @capsule
     redirect_to capsule_path(@capsule)
+  end
 
   def destroy
     @capsule = Capsule.find(params[:id])
