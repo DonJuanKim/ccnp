@@ -5,7 +5,7 @@
 
   <div class="row">
   <h1 class="hot"> WHAT'S HOT? 🔥</h1>
-    <div class="image">
+    <div class="card">
       <img src=<%= image_path("Berghain.jpeg") %> alt="">
       <div class="details">
         <h2>Berghain</h2>
@@ -17,7 +17,7 @@
     </div>
 
     <% @capsules.each do |capsule| %>
-      <div class="image">
+      <div class="card">
         <% if capsule.photos[0] %>
           <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
         <% else %>
