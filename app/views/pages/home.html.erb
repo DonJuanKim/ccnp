@@ -1,20 +1,46 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner_capsule.gif") %>);">
-  <div class="container">
+<div class="banner">
+  <div>
+    <!-- Search bar start -->
+    <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Browse capsules"
+      %>
+      <%= submit_tag "Go", class: "btn btn-primary" %>
+    <% end %>
+    <!-- Search bar end -->
   </div>
 </div>
 
-<div>
-  <h2>THE SEARCH FORM</h2>
-  <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a capsule"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<main>
-
+<main class="card-container">
+  <div class="row">
+  <h1 class="hot"> WHAT'S HOT? 🔥</h1>
+    <div class="card">
+      <img src=<%= image_path("Berghain.jpeg") %> alt="">
+      <div class="details">
+        <h2>Berghain</h2>
+        <p>Bring Berghain wherever you go</p>
+        <div class="more">
+          <a href="#" class="read-more">book now</a>
+        </div>
+      </div>
+    </div>
+    <% @capsules.each do |capsule| %>
+      <div class="card">
+        <% if capsule.photos[0] %>
+          <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
+        <% else %>
+          <%= image_tag "capsules_default_display.jpg", class: "home-card-img" %>
+        <% end %>
+        <div class="details">
+          <h2><%= capsule.name %></h2>
+          <p><%= capsule.description %></p>
+          <div class="more">
+            <%= link_to 'booknow', capsule_path(capsule), class: "read-more" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </main>
