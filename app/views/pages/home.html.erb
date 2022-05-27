@@ -14,16 +14,6 @@
   <h1 class="hot"> WHAT'S HOT? 🔥</h1>
 <main class="card-container">
   <div class="row grid-card-container">
-    <div class="card">
-      <img src=<%= image_path("Berghain.png") %> alt="">
-      <div class="details">
-        <h2>Berghain</h2>
-        <p>Bring Berghain wherever you go</p>
-        <div class="more">
-          <a href="#" class="read-more">book now</a>
-        </div>
-      </div>
-    </div>
     <% @capsules.each do |capsule| %>
       <div class="card">
         <%= link_to "", capsule_path(capsule), class: "card-link" %>
