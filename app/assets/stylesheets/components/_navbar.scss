@@ -8,16 +8,16 @@
   // bold 700
 }
 
-$font-color: #F4F4F4;
-$black-color:  #2B2828;
-
-// text hover effect
+.navbar-brand {
+  text-shadow: $text-shadow-dark;
+}
 
 .navbar-links .navbar-item .navbar-link,
 ul > li .navbar-link {
   display: inline-block;
   position: relative;
   color: $font-color;
+  text-shadow: $text-shadow-dark;
 }
 
 .navbar-links .navbar-item .navbar-link:after,
