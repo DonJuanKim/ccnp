@@ -1,16 +1,14 @@
 <div class="banner">
-  <div>
-    <!-- Search bar start -->
-    <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Browse capsules"
-      %>
-      <%= submit_tag "Go", class: "btn btn-primary" %>
-    <% end %>
-    <!-- Search bar end -->
-  </div>
+  <!-- Search bar start -->
+  <%= form_tag capsules_path, method: :get, class: "searchbar-homepage" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-control-lg",
+      placeholder: "Browse capsules"
+    %>
+    <%= submit_tag "Browse", class: "btn btn-dark btn-lg" %>
+  <% end %>
+  <!-- Search bar end -->
 </div>
 
   <h1 class="hot"> WHAT'S HOT? 🔥</h1>
