@@ -13,9 +13,9 @@
   </div>
 </div>
 
-<main class="card-container">
-  <div class="row">
   <h1 class="hot"> WHAT'S HOT? 🔥</h1>
+<main class="card-container">
+  <div class="row grid-card-container">
     <div class="card">
       <img src=<%= image_path("Berghain.jpeg") %> alt="">
       <div class="details">
@@ -28,6 +28,7 @@
     </div>
     <% @capsules.each do |capsule| %>
       <div class="card">
+        <%= link_to "", capsule_path(capsule), class: "card-link" %>
         <% if capsule.photos[0] %>
           <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
         <% else %>

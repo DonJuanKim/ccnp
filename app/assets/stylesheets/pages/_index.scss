@@ -1,3 +1,23 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "footer";
+@import "../components/card";
+
+
+.index-card-container {
+  display: flex;
+  height: 100vh;
+}
+
+.index-title {
+  color: $font-color;
+  padding: 50px 0 0 50px;
+  font-weight: 900;
+  text-shadow: 0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
