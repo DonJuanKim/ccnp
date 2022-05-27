@@ -1,7 +1,21 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("banner_capsule.gif") %>);">
-  <div class="container">
-  </div>
+<div class="banner">
 </div>
+
+
+<main class="card-container">
+
+  <div class="row">
+  <h1 class="hot"> WHAT'S HOT? 🔥</h1>
+    <div class="image">
+      <img src=<%= image_path("Berghain.jpeg") %> alt="">
+      <div class="details">
+        <h2>Berghain</h2>
+        <p>Bring Berghain wherever you go</p>
+        <div class="more">
+          <a href="#" class="read-more">book now</a>
+        </div>
+      </div>
+    </div>
 
 <div>
   <!-- Search bar start -->
@@ -17,5 +31,21 @@
 </div>
 
 <main>
-
+    <% @capsules.each do |capsule| %>
+      <div class="image">
+        <% if capsule.photos[0] %>
+          <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
+        <% else %>
+          <%= image_tag "capsules_default_display.jpg", class: "home-card-img" %>
+        <% end %>
+        <div class="details">
+          <h2><%= capsule.name %></h2>
+          <p><%= capsule.description %></p>
+          <div class="more">
+            <%= link_to 'booknow', capsule_path(capsule), class: "read-more" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </main>

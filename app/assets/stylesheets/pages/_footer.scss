@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: auto 50px;
+  padding: 30px;
   color: $grey-footer;
   position:relative;
   bottom:0;
@@ -17,7 +17,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: $navblue;
+  color: $font-color;
   opacity: 0.20;
   text-decoration: none;
   font-size: 24px;
@@ -26,4 +26,5 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  color: $font-color;
 }
