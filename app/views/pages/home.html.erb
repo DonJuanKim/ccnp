@@ -1,6 +1,7 @@
 <div class="banner">
 </div>
 
+
 <main class="card-container">
 
   <div class="row">
@@ -16,6 +17,20 @@
       </div>
     </div>
 
+<div>
+  <!-- Search bar start -->
+  <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Browse capsules"
+    %>
+    <%= submit_tag "Go", class: "btn btn-primary" %>
+  <% end %>
+  <!-- Search bar end -->
+</div>
+
+<main>
     <% @capsules.each do |capsule| %>
       <div class="image">
         <% if capsule.photos[0] %>
