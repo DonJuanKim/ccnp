@@ -126,8 +126,6 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
     font-awesome-sass (6.1.1)
       sassc (~> 2.0)
     globalid (1.0.0)
@@ -302,7 +300,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker!
-  font-awesome-rails
   font-awesome-sass (~> 6.1)
   jbuilder
   jquery-rails

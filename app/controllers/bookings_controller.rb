@@ -33,12 +33,8 @@ class BookingsController < ApplicationController
   end
 
   def set_booking_period
-    @booking.period_start = Date.new(params[:booking]["period_start(1i)"].to_i,
-                                     params[:booking]["period_start(2i)"].to_i,
-                                     params[:booking]["period_start(3i)"].to_i)
-    @booking.period_end = Date.new(params[:booking]["period_end(1i)"].to_i,
-                                   params[:booking]["period_end(2i)"].to_i,
-                                   params[:booking]["period_end(3i)"].to_i)
+    @booking.period_start = params[:booking][:period_start].to_date
+    @booking.period_end = params[:booking][:period_start].to_date
   end
 
   def accept
