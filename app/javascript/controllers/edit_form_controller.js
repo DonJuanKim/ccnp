@@ -10,6 +10,7 @@ export default class extends Controller {
 
   toggleEdit() {
     // console.log("toggleEdit testing");
-    this.editFormTarget.classList.toggle("d-none")
+    // this.editFormTarget.classList.toggle("d-none")
+    this.editFormTarget.classList.slideToggle()
   }
 }
