@@ -8,6 +8,11 @@
 
 require 'faker'
 
+User.destroy_all
+puts 'destroyed all users'
+Capsule.destroy_all
+puts 'destroyed all capsules'
+
 10.times do
   user = User.create({
                        username: Faker::Internet.unique.username,
