@@ -1,0 +1,24 @@
+.searchbar-homepage {
+  // border: 3px solid black;
+  width: 50%;
+  // height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  *{
+    font-size: 1.15em !important;
+  }
+
+  .btn {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+//   padding-left: 50px;
+//   padding-bottom: 50px;
+  // position: absolute;
+  // top: 20px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+
+}
