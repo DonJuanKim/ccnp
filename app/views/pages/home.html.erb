@@ -1,9 +1,19 @@
 <div class="banner">
+  <div>
+    <!-- Search bar start -->
+    <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Browse capsules"
+      %>
+      <%= submit_tag "Go", class: "btn btn-primary" %>
+    <% end %>
+    <!-- Search bar end -->
+  </div>
 </div>
 
-
 <main class="card-container">
-
   <div class="row">
   <h1 class="hot"> WHAT'S HOT? 🔥</h1>
     <div class="card">
@@ -16,21 +26,6 @@
         </div>
       </div>
     </div>
-
-<div>
-  <!-- Search bar start -->
-  <%= form_tag capsules_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Browse capsules"
-    %>
-    <%= submit_tag "Go", class: "btn btn-primary" %>
-  <% end %>
-  <!-- Search bar end -->
-</div>
-
-<main>
     <% @capsules.each do |capsule| %>
       <div class="card">
         <% if capsule.photos[0] %>
