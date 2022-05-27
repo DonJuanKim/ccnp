@@ -14,19 +14,25 @@
   <br>
   <br>
   <!-- THE SEARCH FORM END -->
-<% @capsules.each do |capsule| %>
-  <div>
-    <div>
-      <% if capsule.photos[0] %>
-        <%= cl_image_tag capsule.photos[0].key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag "capsules_default_display.jpg", height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </div>
-    <h4> <%= link_to capsule.name, capsule_path(capsule) %> </h4>
+<h1 class="index-title"> Available caps</h1>
+<div class="card-container">
+  <div class="row">
+    <% @capsules.each do |capsule| %>
+          <div class="card">
+            <%= link_to "", capsule_path(capsule), class: "card-link" %>
+            <% if capsule.photos[0] %>
+              <%= cl_image_tag capsule.photos[0].key, class: "home-card-img"%>
+            <% else %>
+              <%= image_tag "capsules_default_display.jpg", class: "home-card-img" %>
+            <% end %>
+            <div class="details">
+              <h2><%= capsule.name %></h2>
+              <p><%= capsule.description %></p>
+              <div class="more">
+                <%= link_to 'booknow', capsule_path(capsule), class: "read-more" %>
+              </div>
+            </div>
+          </div>
+    <% end %>
   </div>
-  <br>
-  <br>
-<% end %>
-
-<%= link_to "new capsule", new_capsule_path %>
+</div>
